@@ -119,8 +119,8 @@ class TestFileStorage(unittest.TestCase):
         storage.new(obj)
         storage.save()
 
-        self.assertEqual(storage.get(YourClassName, obj.id), obj)
-        self.assertEqual(storage.get(YourClassName, "nonexistent_id"))
+        self.assertIs(storage.get(YourClassName, obj.id), obj)
+        self.assertIsNone(storage.get(YourClassName, "nonexistent_id"))
 
     def test.count(self):
         initial_count = storage.count()
